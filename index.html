@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			SQL-JSON converter
+		</title>
+	</head>
+	<body>
+		<header>
+			<h1>
+				SQL-JSON CONVERTER
+			</h1>
+		</header>
+		<section>
+			<div>
+				<h2>
+					Instructions
+				</h2>
+				<ol>
+					<li>
+						Go to /Scada-LTS/sql.shtm
+					</li>
+					<li>
+						Type the following command on query input
+						<br>
+						<code>
+							select id, xid from mangoViews;
+						</code>
+					</li>
+					<li>
+						Paste result here, then click on "Convert to JSON"
+					</li>
+					<li>
+						Save JSON output into assets path
+						<br>
+						<code>
+							C:\\Program Files\ScadaLTS\tomcat\webapps\Scada-LTS\assets\views_tree.js
+						</code>
+					</li>
+				</ol>
+			</div>
+			<div>
+				<h2>
+					Parser
+				</h2>
+				<form action="#" onsubmit="return false;">
+					<div id="fields">
+						<div id="fromdb">
+							<label for="queryinput">
+								Query result
+							</label>
+							<textarea id="queryinput" name="queryinput" rows="15" cols="30"></textarea>
+						</div>
+						<div id="tojson">
+							<label for="jsonoutput">
+								JSON output
+							</label>
+							<textarea id="jsonoutput" name="jsonoutput" rows="15" cols="30"></textarea>
+						</div>
+					</div>
+					<div id="controls">
+						<button onclick="paste()">Paste Query Result</button>
+						<button onclick="convert()">Convert table</button>
+						<button onclick="copy()">Copy to Clipboard</button>
+						<button onclick="save()">Save as file</button>
+					</div>
+				</form>
+			</div>
+		</section>
+		<script src="convert.js"></script>
+	</body>
+</html>
+<style>
+body {
+	padding: 25px;
+}
+form {
+	width: 100%;
+}
+#fields {
+	display: inline-flex;
+	width: 100%;
+}
+#fields > div {
+	display: grid;
+	width: 50%;
+}
+#controls > button {
+	width: 25%;
+	float: left;
+	height: 2rem;
+}
+</style>
+
